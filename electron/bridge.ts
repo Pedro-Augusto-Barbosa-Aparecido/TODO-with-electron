@@ -13,6 +13,14 @@ export const api = {
     ipcRenderer.send('message', message)
   },
 
+  maximize: () => {
+    ipcRenderer.send('maximize', "");
+  }, 
+
+  minimize: () => {
+    ipcRenderer.send('minimize', "");
+  },
+
   /**
    * Provide an easier way to listen to events
    */

@@ -13,14 +13,18 @@ declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string
 function createWindow () {
   mainWindow = new BrowserWindow({
     // icon: path.join(assetsPath, 'assets', 'icon.png'),
-    width: 1100,
-    height: 700,
+    width: 600,
+    height: 800,
+    frame: false,
+    autoHideMenuBar: true,
     backgroundColor: '#191622',
     webPreferences: {
-      nodeIntegration: false,
+      nodeIntegration: true,
       contextIsolation: true,
+      enableRemoteModule: true,
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY
-    }
+    },
+
   })
 
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
@@ -36,6 +40,18 @@ async function registerListeners () {
    */
   ipcMain.on('message', (_, message) => {
     console.log(message)
+  })
+
+  ipcMain.on('maximize', (_, message) => {
+    if (!mainWindow?.isMaximized()) {
+      mainWindow?.maximize();
+    } else {
+      mainWindow?.unmaximize();
+    }
+  })
+
+  ipcMain.on('minimize', (_, message) => {
+    mainWindow?.minimize();
   })
 }
 
