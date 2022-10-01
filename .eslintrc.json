@@ -7,7 +7,8 @@
   },
   "extends": [
     "standard",
-    "prettier"
+    "prettier",
+    "@rocketseat/eslint-config/react"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -23,6 +24,12 @@
     "@typescript-eslint"
   ],
   "rules": {
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   }
 }
