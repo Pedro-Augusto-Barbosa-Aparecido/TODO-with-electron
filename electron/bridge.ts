@@ -21,6 +21,10 @@ export const api = {
     ipcRenderer.send('minimize', "");
   },
 
+  close: () => {
+    ipcRenderer.send('close-application', "");
+  },
+
   /**
    * Provide an easier way to listen to events
    */

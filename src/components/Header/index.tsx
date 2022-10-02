@@ -1,5 +1,5 @@
 import { X, Square, Minus } from "phosphor-react";
-import { CloseButton, HeaderContainer, MaximizeButton, MenuButtonContainer, MinimizeButton } from "./styles";
+import { CloseButton, HeaderContainer, HeaderContainerUserRegionDrag, MaximizeButton, MenuButtonContainer, MinimizeButton } from "./styles";
 
 export function Header() {
   function handleMaximizeWindow () {
@@ -11,11 +11,15 @@ export function Header() {
     window.Main.minimize();
   }
 
+  function handleCloseWindow () {
+    window.Main.close();  
+  }
+
   return (
     <HeaderContainer>
-      <div>
-        <p>TODO</p>
-      </div>
+      <HeaderContainerUserRegionDrag>
+        <p>Projeto de DB</p>
+      </HeaderContainerUserRegionDrag>
       <MenuButtonContainer>
         <MinimizeButton
           onClick={handleMinimizeWindow}
@@ -27,7 +31,9 @@ export function Header() {
         >
           <Square weight="bold" />
         </MaximizeButton>
-        <CloseButton>
+        <CloseButton
+          onClick={handleCloseWindow}
+        >
           <X weight="bold" />
         </CloseButton>
       </MenuButtonContainer>

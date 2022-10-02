@@ -15,6 +15,8 @@ function createWindow () {
     // icon: path.join(assetsPath, 'assets', 'icon.png'),
     width: 600,
     height: 800,
+    minWidth: 156,
+    minHeight: 40,
     frame: false,
     autoHideMenuBar: true,
     backgroundColor: '#191622',
@@ -52,6 +54,11 @@ async function registerListeners () {
 
   ipcMain.on('minimize', (_, message) => {
     mainWindow?.minimize();
+  })
+
+  ipcMain.on('close-application', (_, message) => {
+    mainWindow?.minimize();
+    mainWindow?.close();
   })
 }
 

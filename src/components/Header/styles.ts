@@ -9,12 +9,32 @@ export const HeaderContainer = styled.header`
 
   display: flex;
 
-  justify-content: space-between;
+  justify-content: flex-end;
+
+`;
+
+export const HeaderContainerUserRegionDrag = styled.div`
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+
+  justify-content: flex-start;
+  align-items: center;
+
+  p {
+    padding-left: 0.8rem;
+  }
 
 `;
 
 export const MenuButtonContainer = styled.div`
   display: flex;
+
+  -webkit-app-region: no-drag;
 
   justify-content: center;
   align-items: center;
