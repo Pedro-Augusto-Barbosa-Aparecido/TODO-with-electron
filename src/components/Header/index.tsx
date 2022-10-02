@@ -4,7 +4,6 @@ import { CloseButton, HeaderContainer, HeaderContainerUserRegionDrag, MaximizeBu
 export function Header() {
   function handleMaximizeWindow () {
       window.Main.maximize();
-    
   }
 
   function handleMinimizeWindow () {
