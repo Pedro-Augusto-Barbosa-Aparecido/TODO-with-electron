@@ -11,6 +11,10 @@ export const HeaderContainer = styled.header`
 
   justify-content: flex-end;
 
+  position: fixed;
+  top: 0;
+  left: 0;
+
 `;
 
 export const HeaderContainerUserRegionDrag = styled.div`
