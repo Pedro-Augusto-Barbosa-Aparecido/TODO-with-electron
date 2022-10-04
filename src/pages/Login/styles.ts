@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const LoginContainer = styled.main`
   width: 100%;
-  height: calc(100vh);
+  height: 100vh;
 
   display: flex;
 
@@ -57,14 +57,24 @@ export const Form = styled.form`
 export const ImageContainer = styled.div`
   display: none;
 
+  height: calc(100vh);
+  position: relative;
+  z-index: -999;
+
+  filter: blur(2px);
+
+  box-shadow: inset 0px 33px 25px 0 #000, 
+            inset 0 66px 15px 0px #ccc,
+            inset 0 99px 5px 0px #fff;
+
   @media (min-width: 1280px) {
     display: flex !important;
-    flex: 1;
+    flex: 2;
 
   }
 
   img {
-    height: 100vh;
+    width: 100%;
 
   }
 
