@@ -30,23 +30,78 @@ export const Form = styled.form`
     justify-content: center;
     align-items: flex-start;
 
+    position: relative;
+
     &:not(:last-child) {
       margin-bottom: 20px;
     }
 
     width: 400px;
 
+    svg {
+      position: absolute;
+      top: calc(50% + 2px);
+      right: 15px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:active {
+        cursor: default;
+      }
+
+    }
+
+    label {
+      font-family: "Roboto", sans-serif;
+      font-style: oblique;
+    }
+
     input {
       width: 100%;
       height: 48px;
 
-      padding: 6px;
+      padding: 0 15px;
       border-radius: 6px;
+
+      font-size: 1.2rem;
 
       border: 0;
 
       background-color: ${props => props.theme["gray-800"]};
       margin-top: 10px;
+
+      color: ${props => props.theme["gray-400"]};
+
+      &:focus {
+        box-shadow: 0 0 6px 6px ${props => props.theme['green-700']};
+      }
+
+    }
+
+  }
+
+  button {
+    width: 100%;
+    height: 48px;
+    
+    cursor: pointer;
+
+    background-color: ${props => props.theme["purple-500"]};
+
+    border: 0;
+    border-radius: 4px;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    color: ${props => props.theme["gray-100"]};
+
+    &:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 0 6px 2px ${props => props.theme['purple-600']};
 
     }
 
@@ -61,7 +116,7 @@ export const ImageContainer = styled.div`
   position: relative;
   z-index: -999;
 
-  filter: blur(2px);
+  /* filter: blur(2px); */
 
   box-shadow: inset 0px 33px 25px 0 #000, 
             inset 0 66px 15px 0px #ccc,
