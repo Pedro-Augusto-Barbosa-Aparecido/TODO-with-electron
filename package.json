@@ -15,6 +15,7 @@
   "keywords": [],
   "license": "MIT",
   "dependencies": {
+    "@hookform/error-message": "^2.0.0",
     "@hookform/resolvers": "^2.9.8",
     "phosphor-react": "^1.4.1",
     "polished": "^4.2.2",

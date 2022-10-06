@@ -30,7 +30,7 @@ export const Form = styled.form`
     justify-content: center;
     align-items: flex-start;
 
-    position: relative;
+    /* position: relative; */
 
     &:not(:last-child) {
       margin-bottom: 20px;
@@ -38,9 +38,18 @@ export const Form = styled.form`
 
     width: 400px;
 
+    div {
+      svg {
+        position: initial;
+        &:hover {
+          cursor: default;
+        }
+      }
+    }
+
     svg {
       position: absolute;
-      top: calc(50% + 2px);
+      top: 13px;
       right: 15px;
 
       &:hover {
@@ -58,7 +67,7 @@ export const Form = styled.form`
       font-style: oblique;
     }
 
-    input {
+    input, section {
       width: 100%;
       height: 48px;
 
@@ -77,6 +86,18 @@ export const Form = styled.form`
       &:focus {
         box-shadow: 0 0 6px 6px ${props => props.theme['green-700']};
       }
+
+    }
+
+    input[id="password"] {
+      margin: 0;
+    }
+ 
+    section {
+      height: auto;
+      padding: 0;
+
+      position: relative;
 
     }
 
@@ -103,6 +124,11 @@ export const Form = styled.form`
       filter: brightness(1.1);
       box-shadow: 0 0 6px 2px ${props => props.theme['purple-600']};
 
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: .7;
     }
 
   }
