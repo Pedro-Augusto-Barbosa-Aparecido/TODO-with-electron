@@ -3,7 +3,6 @@ import { GlobalStyle } from './styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from './styles/theme/default';
 import { Header } from './components/Header';
-import { Login } from './pages/Login';
 import { HashRouter } from 'react-router-dom';
 import { Routes } from './pages/routes';
 

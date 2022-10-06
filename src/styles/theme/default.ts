@@ -37,5 +37,7 @@ export const defaultTheme = {
   
   "cyan-100": '#78D1E1',
   
-  "yellow-200": '#e7de79'
+  "yellow-200": '#e7de79',
+
+  "bg-spinner": "hsl(360, 50%, 68%, 0.37)",
 } as const;

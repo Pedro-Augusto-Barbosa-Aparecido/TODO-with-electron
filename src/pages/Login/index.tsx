@@ -19,6 +19,7 @@ import { ErrorMessage } from "@hookform/error-message";
 import { ErrorMessage as ErrorMessageComponent } from "../../components/Error";
 
 import { delay } from "../../utils/delay";
+import { Spinner } from "../../components/Spinner";
 
 const loginFormSchema = z.object({
   email: z.string({
@@ -131,6 +132,7 @@ export function Login () {
           </button>
         </Form>
       </FormContainer>
+      {isSubmitting && <Spinner />}
     </LoginContainer>
 
   );
