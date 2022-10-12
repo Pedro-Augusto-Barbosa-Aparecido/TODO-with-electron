@@ -1,4 +1,7 @@
-import { app, BrowserWindow, ipcMain } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron';
+import { config } from "dotenv";
+
+config();
 
 let mainWindow: BrowserWindow | null
 
