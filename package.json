@@ -11,7 +11,8 @@
     "release": "electron-forge publish",
     "lint": "eslint . --ext js,ts",
     "test": "jest",
-    "test:connection": "ts-node-dev ./electron/database/Connection/index.ts"
+    "db": "ts-node-dev ./electron/database/connection.ts",
+    "setup": "ts-node-dev ./electron/database/setupTables.ts"
   },
   "keywords": [],
   "license": "MIT",
@@ -19,7 +20,7 @@
     "@hookform/error-message": "^2.0.0",
     "@hookform/resolvers": "^2.9.8",
     "dotenv": "^16.0.3",
-    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
     "phosphor-react": "^1.4.1",
     "polished": "^4.2.2",
     "react": "17.0.2",
@@ -29,7 +30,6 @@
     "react-icons": "^4.4.0",
     "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.4.1",
-    "sqlite3": "^5.1.2",
     "styled-components": "5.3.0",
     "ts-node-dev": "^2.0.0",
     "zod": "^3.19.1"

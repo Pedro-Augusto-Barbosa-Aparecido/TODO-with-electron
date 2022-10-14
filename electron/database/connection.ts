@@ -1,19 +1,19 @@
-import { Database } from "sqlite3";
+import dotenv from "dotenv";
+import mysql from "mysql2";
+
+dotenv.config();
 
 export class Connection {
   private static instance: Connection;
   private static isMethod: boolean = false;
 
-  public connection: Database;
+  public db;
 
   constructor () {
     if (!Connection.isMethod) 
       throw new Error("Inicie a instancia pelo método getInstance()");
     
-      this.connection = new Database("./data/db.db", (err) => {
-        if (err) 
-          console.log(err);
-      });
+      this.db = mysql.createConnection(process.env.DATABASE_URL!);
   
   }
 
@@ -27,5 +27,3 @@ export class Connection {
   }
 
 }
-
-Connection.getInstance();
