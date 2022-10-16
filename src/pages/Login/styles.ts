@@ -1,3 +1,4 @@
+import * as Dialog from "@radix-ui/react-dialog";
 import styled from "styled-components";
 
 export const LoginContainer = styled.main`
@@ -172,4 +173,19 @@ export const FormContainer = styled.div`
   
   flex-direction: column;
 
+`;
+
+export const DialogTriggerContent = styled(Dialog.Trigger)`
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  /*optional*/
+  font-family: "Roboto", sans-serif;
+  /*input has OS specific font-family*/
+  color: ${props => props.theme["gray-500"]};
+  text-decoration: underline;
+
+  cursor: pointer;
+
+  margin-top: 1rem;
 `;

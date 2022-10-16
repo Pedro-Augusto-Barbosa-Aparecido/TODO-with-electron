@@ -1,8 +1,11 @@
+import * as Dialog from "@radix-ui/react-dialog";
+
 import { 
   Form, 
   LoginContainer, 
   ImageContainer, 
-  FormContainer 
+  FormContainer,
+  DialogTriggerContent
 } from "./styles";
 
 import loginBackImage from "../../../assets/login-image.jpg";
@@ -21,6 +24,8 @@ import { ErrorMessage as ErrorMessageComponent } from "../../components/Error";
 import { delay } from "../../utils/delay";
 import { Spinner } from "../../components/Spinner";
 import { CheckBox } from "../../components/CheckBox";
+import { CreateUserModal } from "./components/CreateUserModal";
+import { ForgotPasswordModal } from "./components/ForgotPasswordModal";
 
 const loginFormSchema = z.object({
   email: z.string({
@@ -151,7 +156,18 @@ export function Login () {
             Sign In
           </button>
         </Form>
-        
+        <Dialog.Root>
+          <DialogTriggerContent>
+            <span>Não tenho conta ainda?</span>
+          </DialogTriggerContent>
+          <CreateUserModal />
+        </Dialog.Root>
+        <Dialog.Root>
+          <DialogTriggerContent>
+            <span>Esqueci minha senha? Altere aqui...</span>
+          </DialogTriggerContent>
+          <ForgotPasswordModal />
+        </Dialog.Root>
       </FormContainer>
       {isSubmitting && <Spinner />}
     </LoginContainer>

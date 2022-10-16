@@ -40,4 +40,5 @@ export const defaultTheme = {
   "yellow-200": '#e7de79',
 
   "bg-spinner": "hsl(360, 50%, 68%, 0.37)",
+  "bg-overlay": "rgba(0, 0, 0, 0.75)",
 } as const;
