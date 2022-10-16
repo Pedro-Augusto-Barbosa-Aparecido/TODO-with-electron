@@ -10,16 +10,17 @@
     "make": "electron-forge make",
     "release": "electron-forge publish",
     "lint": "eslint . --ext js,ts",
-    "test": "jest",
-    "db": "ts-node-dev ./electron/database/connection.ts",
-    "setup": "ts-node-dev ./electron/database/setupTables.ts"
+    "test": "jest"
   },
   "keywords": [],
   "license": "MIT",
   "dependencies": {
     "@hookform/error-message": "^2.0.0",
     "@hookform/resolvers": "^2.9.8",
+    "@radix-ui/react-checkbox": "^1.0.0",
+    "@radix-ui/react-dialog": "^1.0.0",
     "dotenv": "^16.0.3",
+    "electron-store": "^8.1.0",
     "mysql2": "^2.3.3",
     "phosphor-react": "^1.4.1",
     "polished": "^4.2.2",

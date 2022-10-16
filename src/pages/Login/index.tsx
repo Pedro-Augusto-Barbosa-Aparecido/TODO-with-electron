@@ -12,7 +12,7 @@ import { Eye, EyeClosed } from "phosphor-react";
 import { useTheme } from "styled-components";
 
 import * as z from "zod";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ErrorMessage } from "@hookform/error-message";
 
@@ -20,6 +20,7 @@ import { ErrorMessage as ErrorMessageComponent } from "../../components/Error";
 
 import { delay } from "../../utils/delay";
 import { Spinner } from "../../components/Spinner";
+import { CheckBox } from "../../components/CheckBox";
 
 const loginFormSchema = z.object({
   email: z.string({
@@ -35,26 +36,33 @@ const loginFormSchema = z.object({
     message: "São permitidos no máximo 20 caracteres!!"
   }).min(8, {
     message: "É necessário que a senha tenha 8 caracteres no mínimo!!"
-  })
+  }),
+  remember: z.enum(["true", "false"])
 });
 
 type LoginFormInputs = z.infer<typeof loginFormSchema>;
 
 export function Login () {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [d, setD] = useState("");
 
   const colors = useTheme();
 
   const { 
+    control,
     register,
     handleSubmit,
     formState: { isSubmitting, errors }
   } = useForm<LoginFormInputs>({
-    resolver: zodResolver(loginFormSchema)
+    resolver: zodResolver(loginFormSchema),
+    defaultValues: {
+      remember: "false"
+    }
   });
 
   const handleShowPasswordOrNot = () => setShowPassword(state => !state);
   const handleLogin = async (data: LoginFormInputs) => {
+    setD(JSON.stringify(data))
     await delay(5000)
 
   }
@@ -68,7 +76,6 @@ export function Login () {
         onSubmit={handleSubmit(handleLogin)}
       >
         <h2>Faça seu login </h2>
-        
         <Form>
           <div>
             <label htmlFor="email">Email: </label>
@@ -124,6 +131,19 @@ export function Login () {
               }}
             />        
           </div>
+          <Controller 
+            name="remember"
+            control={control}
+            render={({ field }) => {
+              return (
+                  <CheckBox 
+                    onValueChange={field.onChange}
+                    value={field.value}
+                    label="Lembre-se de mim!"
+                  />
+              )
+            }}
+          />
           <button 
             type="submit"
             disabled={isSubmitting}
@@ -131,6 +151,7 @@ export function Login () {
             Sign In
           </button>
         </Form>
+        
       </FormContainer>
       {isSubmitting && <Spinner />}
     </LoginContainer>
