@@ -1,5 +1,6 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import { config } from "dotenv";
+import path from "path";
 
 config();
 
@@ -8,14 +9,13 @@ let mainWindow: BrowserWindow | null
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string
 
-// const assetsPath =
-//   process.env.NODE_ENV === 'production'
-//     ? process.resourcesPath
-//     : app.getAppPath()
-
+const assetsPath =
+  process.env.NODE_ENV === 'production'
+    ? process.resourcesPath
+    : app.getAppPath()
 function createWindow () {
   mainWindow = new BrowserWindow({
-    // icon: path.join(assetsPath, 'assets', 'icon.png'),
+    icon: path.join(assetsPath, 'assets', 'icon.png'),
     width: 600,
     height: 800,
     minWidth: 600,
